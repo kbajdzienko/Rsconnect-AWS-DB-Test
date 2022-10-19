@@ -1,11 +1,16 @@
 library(shiny)
 library(DBI)
 library(RPostgres)
+library(waiter)
 
 source("global.R")
 
 
 ui <- fluidPage(
+    
+    waiter::useWaiter(),
+    waiter::waiterShowOnLoad(spin_fading_circles()),
+    
     titlePanel('AWS Aurora Connection Test'),
     sidebarLayout(
         sidebarPanel(
@@ -60,6 +65,8 @@ server <- function(input, output, session) {
     
     rv <- reactiveVal()
     
+    waiter::waiter_hide()
+    
     observeEvent(input$db.connect, {
         ENDPOINT <- req(input$endpoint)
         PORT <- req(input$port)
@@ -72,12 +79,21 @@ server <- function(input, output, session) {
             "select current_catalog, current_schema, current_role, current_timestamp"
         )
         
+        waiter_show(
+            html = tagList(
+                waiter::spin_6(),
+                paste("Connecting to", ENDPOINT)
+            )
+        )
+        
         df <- tryCatch(
             dbQuery(query, ENDPOINT, PORT, DBNAME, USER, PASSWORD),
             error = function(e) {
                 paste(e, collapse = '\n')
             }
         )
+        
+        waiter_hide()
         
         
         
@@ -99,7 +115,7 @@ server <- function(input, output, session) {
             filter = 'none',
             dom = 't'
         )
-        )
+    )
     
 }
 
