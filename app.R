@@ -2,6 +2,7 @@ library(shiny)
 library(DBI)
 library(RPostgres)
 library(waiter)
+library(shinyAce)
 
 source("global.R")
 
@@ -57,7 +58,20 @@ ui <- fluidPage(
                 class = 'btn-success btn-block'
             )
         ),
-        mainPanel(dataTableOutput('table'))
+        mainPanel(dataTableOutput('table')),
+        fluidRow(
+            column(
+                6,
+                h2("Source Code"),
+                aceEditor("code", mode = "r", height = "200px", value = init),
+                actionButton("eval", "Evaluate")
+            ),
+            column(
+                6,
+                h2("Output"),
+                verbatimTextOutput("output")
+            )
+        )
     ) #end sidebarLayout
 )
 
@@ -116,6 +130,11 @@ server <- function(input, output, session) {
             dom = 't'
         )
     )
+    
+    output$output <- renderPrint({
+        input$eval
+        eval(parse(text = isolate(input$code)))
+    })
     
 }
 

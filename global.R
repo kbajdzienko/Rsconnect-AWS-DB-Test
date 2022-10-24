@@ -61,8 +61,6 @@ make_con <- function(ENDPOINT, PORT, DBNAME, USER, PASSWORD){
     password = PASSWORD
   )
   
-  shiny::showNotification(paste("DB Connection Success for",USER))
-  
   return(con)
   
 }
