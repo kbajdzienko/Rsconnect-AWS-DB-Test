@@ -1146,6 +1146,34 @@
         "Built": "R 4.2.1; ; 2022-09-15 03:46:51 UTC; windows"
       }
     },
+    "shinyAce": {
+      "Source": "CRAN",
+      "Repository": "https://cran.uni-muenster.de",
+      "description": {
+        "Package": "shinyAce",
+        "Type": "Package",
+        "Title": "Ace Editor Bindings for Shiny",
+        "Version": "0.4.2",
+        "Date": "2022-5-5",
+        "Authors@R": "c(\n  person(\"Vincent\", \"Nijs\", role = c(\"aut\", \"cre\"), email = \"radiant@rady.ucsd.edu\"),\n  person(\"Forest\", \"Fang\", role = \"aut\", email = \"forest.fang@outlook.com\"),\n  person(family = \"Trestle Technology, LLC\", role = \"aut\", email = \"cran@trestletechnology.net\"),\n  person(\"Jeff\", \"Allen\", role = \"aut\", email = \"cran@trestletechnology.net\"),\n  person(family = \"Institut de Radioprotection et de Surete Nucleaire\", role = c(\"cph\"), email = \"yann.richet@irsn.fr\"),\n  person(family = \"Ajax.org B.V.\", role = c(\"ctb\", \"cph\"), comment = \"Ace\"))",
+        "Description": "Ace editor bindings to enable a rich text editing environment\n    within Shiny.",
+        "License": "MIT + file LICENSE",
+        "Depends": "R (>= 3.3.0)",
+        "Imports": "shiny (>= 1.0.5), jsonlite, utils, tools",
+        "Suggests": "testthat (>= 2.0.0), dplyr (>= 0.8.3)",
+        "BugReports": "https://github.com/trestletech/shinyAce/issues",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.1.2",
+        "Language": "en-US",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-05-06 04:47:18 UTC; vnijs",
+        "Author": "Vincent Nijs [aut, cre],\n  Forest Fang [aut],\n  Trestle Technology, LLC [aut],\n  Jeff Allen [aut],\n  Institut de Radioprotection et de Surete Nucleaire [cph],\n  Ajax.org B.V. [ctb, cph] (Ace)",
+        "Maintainer": "Vincent Nijs <radiant@rady.ucsd.edu>",
+        "Repository": "CRAN",
+        "Date/Publication": "2022-05-06 06:50:08 UTC",
+        "Built": "R 4.2.1; ; 2022-10-09 03:50:14 UTC; windows"
+      }
+    },
     "sourcetools": {
       "Source": "CRAN",
       "Repository": "https://cran.uni-muenster.de",
@@ -1291,13 +1319,16 @@
   },
   "files": {
     ".Rprofile": {
-      "checksum": "6986f3d17fef4d6cf53cb30ea69eb252"
+      "checksum": "094562470f24c48b18551312133ffd89"
     },
     "app.R": {
-      "checksum": "aaf2f1d0de708afdf94ac1e418f9bd1b"
+      "checksum": "bb32eddb268a3170724bb13e68f91af8"
+    },
+    "aws-advanced-jdbc-wrapper-1.0.0.jar": {
+      "checksum": "144d777e403103b3b06f90583dc2b101"
     },
     "global.R": {
-      "checksum": "775c15b7d5efb7dad23081d6da4d8944"
+      "checksum": "9e947c51069b41730dfddda1977652ee"
     },
     "init": {
       "checksum": "7d7c50110f7116bcf172698a61471870"
