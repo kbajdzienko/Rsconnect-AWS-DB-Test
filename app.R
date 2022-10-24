@@ -57,15 +57,15 @@ ui <- fluidPage(
                 icon = icon('database'),
                 class = 'btn-success btn-block'
             )
-        )
+        ),
+        mainPanel(dataTableOutput('table'))
     ), #end sidebarLayout
-    
-    mainPanel(dataTableOutput('table')),
+
     fluidRow(
         column(
             6,
             h2("Source Code"),
-            aceEditor("code", mode = "r", height = "200px", value = init),
+            aceEditor("code", mode = "r", height = "200px", value = ""),
             actionButton("eval", "Evaluate")
         ),
         column(
