@@ -57,22 +57,23 @@ ui <- fluidPage(
                 icon = icon('database'),
                 class = 'btn-success btn-block'
             )
-        ),
-        mainPanel(dataTableOutput('table')),
-        fluidRow(
-            column(
-                6,
-                h2("Source Code"),
-                aceEditor("code", mode = "r", height = "200px", value = init),
-                actionButton("eval", "Evaluate")
-            ),
-            column(
-                6,
-                h2("Output"),
-                verbatimTextOutput("output")
-            )
         )
-    ) #end sidebarLayout
+    ), #end sidebarLayout
+    
+    mainPanel(dataTableOutput('table')),
+    fluidRow(
+        column(
+            6,
+            h2("Source Code"),
+            aceEditor("code", mode = "r", height = "200px", value = init),
+            actionButton("eval", "Evaluate")
+        ),
+        column(
+            6,
+            h2("Output"),
+            verbatimTextOutput("output")
+        )
+    )
 )
 
 server <- function(input, output, session) {
