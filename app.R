@@ -12,11 +12,15 @@ source("global.R")
 
 
 ui <- navbarPage(
+    title = 'AWS Aurora Connection Test',
+                     
+    tags$head(
+        waiter::useWaiter(),
+        waiter::waiterShowOnLoad(spin_fading_circles())
+        ),
+                 
+                 
     
-    waiter::useWaiter(),
-    waiter::waiterShowOnLoad(spin_fading_circles()),
-    
-    titlePanel('AWS Aurora Connection Test'),
     tabPanel(
         "Simple",
         sidebarLayout(
@@ -71,6 +75,7 @@ ui <- navbarPage(
         'Advanced',
         fluidRow(
             h2("Source Code"),
+            p("Write you own DBI/odbc/RPostgres/RJDBC connection string"),
             aceEditor("code", mode = "r", height = "200px", value = ""),
             actionButton("eval", "Evaluate"),
             verbatimTextOutput("output"),
