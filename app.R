@@ -25,7 +25,10 @@ ui <- navbarPage(
                 h3("Help"),
                 p(
                     "This is a POC shiny app to test connection to ODBC datasources on AWS.",
-                    "It should help you validate if the RSCONNECT server is able to connect with your "
+                    "It should help you validate if the RSCONNECT server is able to connect with data provider in your AWS account."
+                ),
+                p(
+                    "Note that DEV accounts cannot connect to PROD accounts."
                 ),
                 p(
                     "Fill the connection arguments and click Connect DB to test the connection.
