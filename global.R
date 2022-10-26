@@ -57,7 +57,7 @@ make_con <- function(DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
     driver = DRIVER,
     host = ENDPOINT,
     port = PORT,
-    dbname = DBNAME,
+    database = DBNAME,
     user = USER,
     password = PASSWORD
   )
