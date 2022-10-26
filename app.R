@@ -2,17 +2,14 @@ library(shiny)
 library(waiter)
 
 library(DBI)
-library(RPostgres)
 library(odbc)
-library(RJDBC)
 
-library(shinyAce)
 
 source("global.R")
 
 
 ui <- navbarPage(
-    title = 'AWS Aurora Connection Test',
+    title = 'AWS Datasource Connection Test',
                      
     tags$head(
         waiter::useWaiter(),
@@ -22,21 +19,28 @@ ui <- navbarPage(
                  
     
     tabPanel(
-        "Simple",
+        "Home",
         sidebarLayout(
             sidebarPanel(
                 h3("Help"),
                 p(
-                    "This is a POC shiny app to test connection to AWS Aurora, PostgreSQL."
+                    "This is a POC shiny app to test connection to ODBC datasources on AWS.",
+                    "It should help you validate if the RSCONNECT server is able to connect with your "
                 ),
                 p(
                     "Fill the connection arguments and click Connect DB to test the connection.
                 On successfull connection, the app will return a table with current connection information on the right panel."
                 ),
                 h3("Connection Arguments"),
+                selectInput(
+                    inputId = 'driver',
+                    label = 'Data Source Type',
+                    choices = unique(odbc::odbcListDrivers()[,"name"])
+                ),
                 textInput(
                     inputId = 'endpoint',
-                    label = aws_guide_aurora
+                    label = aws_guide_aurora,
+                    value = 'mutation-centric-db-postgresqlv2-two.ciaihwn16xxi.eu-central-1.rds.amazonaws.com'
                 ),
                 textInput(
                     inputId = 'port',
@@ -69,20 +73,8 @@ ui <- navbarPage(
                 )
             ),
             mainPanel(dataTableOutput('table'))
-        ), #end sidebarLayout
-    ),
-    tabPanel(
-        'Advanced',
-        fluidRow(
-            h2("Source Code"),
-            p("Write you own DBI/odbc/RPostgres/RJDBC connection string"),
-            aceEditor("code", mode = "r", height = "200px", value = ""),
-            actionButton("eval", "Evaluate"),
-            verbatimTextOutput("output"),
-            verbatimTextOutput('errors')
-        )
+        ) #end sidebarLayout
     )
-    
 )
 
 server <- function(input, output, session) {
@@ -92,6 +84,7 @@ server <- function(input, output, session) {
     waiter::waiter_hide()
     
     observeEvent(input$db.connect, {
+        DRIVER <- req(input$driver)
         ENDPOINT <- req(input$endpoint)
         PORT <- req(input$port)
         DBNAME <- req(input$dbname)
@@ -141,16 +134,7 @@ server <- function(input, output, session) {
         )
     )
     
-    output$output <- renderPrint({
-        input$eval
-        eval(parse(text = isolate(input$code)))
-    })
     
-    output$errors <- renderPrint({
-        input$eval
-        tryCatch(expr = eval(parse(text = isolate(input$code))),
-                 error = function(e) paste(e, collapse = '\n'))
-    })
     
 }
 

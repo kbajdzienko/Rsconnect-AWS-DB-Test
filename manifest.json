@@ -66,62 +66,6 @@
         "Built": "R 4.2.1; ; 2022-09-15 01:10:13 UTC; windows"
       }
     },
-    "RJDBC": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "RJDBC",
-        "Version": "0.2-10",
-        "Title": "Provides Access to Databases Through the JDBC Interface",
-        "Author": "Simon Urbanek <Simon.Urbanek@r-project.org>",
-        "Maintainer": "Simon Urbanek <Simon.Urbanek@r-project.org>",
-        "Depends": "methods, DBI, rJava (>= 0.4-15), R (>= 2.4.0)",
-        "Description": "The RJDBC package is an implementation of R's DBI interface using JDBC as a back-end. This allows R to connect to any DBMS that has a JDBC driver.",
-        "License": "MIT + file LICENSE",
-        "URL": "http://www.rforge.net/RJDBC/",
-        "NeedsCompilation": "no",
-        "Packaged": "2022-03-24 06:18:52 UTC; rforge",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-03-24 16:07:54 UTC",
-        "Built": "R 4.2.1; ; 2022-10-09 00:49:25 UTC; windows"
-      }
-    },
-    "RPostgres": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "RPostgres",
-        "Title": "Rcpp Interface to PostgreSQL",
-        "Version": "1.4.4",
-        "Date": "2022-05-01",
-        "Authors@R": "\n    c(person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = \"aut\"),\n      person(given = \"Jeroen\",\n             family = \"Ooms\",\n             role = \"aut\"),\n      person(given = \"Kirill\",\n             family = \"M\\u00fcller\",\n             role = c(\"aut\", \"cre\"),\n             email = \"krlmlr+r@mailbox.org\",\n             comment = c(ORCID = \"0000-0002-1416-3412\")),\n      person(given = \"RStudio\",\n             role = \"cph\"),\n      person(given = \"R Consortium\",\n             role = \"fnd\"),\n      person(given = \"Tomoaki\",\n             family = \"Nishiyama\",\n             role = \"ctb\",\n             comment = \"Code for encoding vectors into strings derived from RPostgreSQL\"))",
-        "Description": "Fully DBI-compliant Rcpp-backed interface to\n    PostgreSQL <https://www.postgresql.org/>, an open-source relational\n    database.",
-        "License": "GPL-3",
-        "URL": "https://rpostgres.r-dbi.org, https://github.com/r-dbi/RPostgres",
-        "BugReports": "https://github.com/r-dbi/RPostgres/issues",
-        "Depends": "R (>= 3.1.0)",
-        "Imports": "bit64, blob (>= 1.2.0), DBI (>= 1.1.0), hms (>= 1.0.0),\nlubridate, methods, Rcpp (>= 1.0.7), withr",
-        "Suggests": "callr, covr, DBItest (>= 1.7.1), knitr, rmarkdown, testthat",
-        "LinkingTo": "plogr (>= 0.2.0), Rcpp",
-        "VignetteBuilder": "knitr",
-        "Encoding": "UTF-8",
-        "LazyLoad": "true",
-        "RoxygenNote": "7.1.2",
-        "SystemRequirements": "libpq >= 9.0: libpq-dev (deb) or postgresql-devel\n(rpm)",
-        "Collate": "'PqDriver.R' 'PqConnection.R' 'PqResult.R' 'RPostgres-pkg.R'\n'RcppExports.R' 'Redshift.R' 'dbAppendTable_PqConnection.R'\n'dbBegin_PqConnection.R' 'dbBind_PqResult.R'\n'dbClearResult_PqResult.R' 'dbColumnInfo_PqResult.R'\n'dbCommit_PqConnection.R' 'dbConnect_PqDriver.R'\n'dbConnect_RedshiftDriver.R' 'dbDataType_PqConnection.R'\n'dbDataType_PqDriver.R' 'dbDisconnect_PqConnection.R'\n'dbExistsTable_PqConnection_Id.R'\n'dbExistsTable_PqConnection_character.R' 'dbFetch_PqResult.R'\n'dbGetInfo_PqConnection.R' 'dbGetInfo_PqDriver.R'\n'dbGetRowCount_PqResult.R' 'dbGetRowsAffected_PqResult.R'\n'dbGetStatement_PqResult.R' 'dbHasCompleted_PqResult.R'\n'dbIsValid_PqConnection.R' 'dbIsValid_PqDriver.R'\n'dbIsValid_PqResult.R' 'dbListFields_PqConnection_Id.R'\n'dbListFields_PqConnection_character.R'\n'dbListObjects_PqConnection_ANY.R'\n'dbListTables_PqConnection.R'\n'dbQuoteIdentifier_PqConnection_Id.R'\n'dbQuoteIdentifier_PqConnection_SQL.R'\n'dbQuoteIdentifier_PqConnection_character.R'\n'dbQuoteLiteral_PqConnection.R'\n'dbQuoteString_PqConnection_SQL.R'\n'dbQuoteString_PqConnection_character.R'\n'dbReadTable_PqConnection_character.R'\n'dbRemoveTable_PqConnection_character.R'\n'dbRollback_PqConnection.R' 'dbSendQuery_PqConnection.R'\n'dbUnloadDriver_PqDriver.R'\n'dbUnquoteIdentifier_PqConnection_SQL.R'\n'dbWriteTable_PqConnection_character_data.frame.R' 'default.R'\n'export.R' 'names.R' 'quote.R' 'show_PqConnection.R'\n'sqlData_PqConnection.R' 'tables.R' 'transactions.R' 'utils.R'",
-        "Config/autostyle/scope": "line_breaks",
-        "Config/autostyle/strict": "false",
-        "NeedsCompilation": "yes",
-        "Packaged": "2022-05-01 15:58:33 UTC; kirill",
-        "Author": "Hadley Wickham [aut],\n  Jeroen Ooms [aut],\n  Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>),\n  RStudio [cph],\n  R Consortium [fnd],\n  Tomoaki Nishiyama [ctb] (Code for encoding vectors into strings derived\n    from RPostgreSQL)",
-        "Maintainer": "Kirill Müller <krlmlr+r@mailbox.org>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-05-02 08:50:05 UTC",
-        "Built": "R 4.2.1; x86_64-w64-mingw32; 2022-09-22 02:30:55 UTC; windows",
-        "ExperimentalWindowsRuntime": "ucrt",
-        "Archs": "x64"
-      }
-    },
     "Rcpp": {
       "Source": "CRAN",
       "Repository": "https://cran.uni-muenster.de",
@@ -376,34 +320,6 @@
         "Archs": "x64"
       }
     },
-    "cpp11": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "cpp11",
-        "Title": "A C++11 Interface for R's C Interface",
-        "Version": "0.4.2",
-        "Authors@R": "\n    c(person(given = \"Jim\",\n             family = \"Hester\",\n             role = \"aut\",\n             comment = c(ORCID = \"0000-0002-2739-7082\")),\n      person(given = \"Romain\",\n             family = \"François\",\n             role = c(\"aut\", \"cre\"),\n             email = \"romain@rstudio.com\"),\n      person(given = \"Benjamin\",\n             family = \"Kietzman\",\n             role = \"ctb\"),\n      person(given = \"RStudio\",\n             role = c(\"cph\", \"fnd\")))",
-        "Description": "Provides a header only, C++11 interface to R's C\n    interface.  Compared to other approaches 'cpp11' strives to be safe\n    against long jumps from the C API as well as C++ exceptions, conform\n    to normal R function semantics and supports interaction with 'ALTREP'\n    vectors.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://cpp11.r-lib.org, https://github.com/r-lib/cpp11",
-        "BugReports": "https://github.com/r-lib/cpp11/issues",
-        "Suggests": "bench, brio, callr, cli, covr, decor, desc, ggplot2, glue,\nknitr, lobstr, mockery, progress, rmarkdown, scales, Rcpp,\ntestthat, tibble, utils, vctrs, withr",
-        "VignetteBuilder": "knitr",
-        "Config/testthat/edition": "3",
-        "Config/Needs/cpp11/cpp_register": "brio, cli, decor, desc, glue, tibble,\nvctrs",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.1.2",
-        "SystemRequirements": "C++11",
-        "NeedsCompilation": "no",
-        "Packaged": "2021-11-29 17:26:06 UTC; jhester",
-        "Author": "Jim Hester [aut] (<https://orcid.org/0000-0002-2739-7082>),\n  Romain François [aut, cre],\n  Benjamin Kietzman [ctb],\n  RStudio [cph, fnd]",
-        "Maintainer": "Romain François <romain@rstudio.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2021-11-30 09:10:04 UTC",
-        "Built": "R 4.2.1; ; 2022-09-25 00:41:27 UTC; windows"
-      }
-    },
     "crayon": {
       "Source": "CRAN",
       "Repository": "https://cran.uni-muenster.de",
@@ -572,34 +488,6 @@
         "Built": "R 4.2.1; x86_64-w64-mingw32; 2022-09-15 01:10:54 UTC; windows",
         "ExperimentalWindowsRuntime": "ucrt",
         "Archs": "x64"
-      }
-    },
-    "generics": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "generics",
-        "Title": "Common S3 Generics not Provided by Base R Methods Related to\nModel Fitting",
-        "Version": "0.1.3",
-        "Authors@R": "c(\n    person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = c(\"aut\", \"cre\")),\n    person(\"Max\", \"Kuhn\", , \"max@rstudio.com\", role = \"aut\"),\n    person(\"Davis\", \"Vaughan\", , \"davis@rstudio.com\", role = \"aut\"),\n    person(\"RStudio\", role = \"cph\")\n  )",
-        "Description": "In order to reduce potential package dependencies and\n    conflicts, generics provides a number of commonly used S3 generics.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://generics.r-lib.org, https://github.com/r-lib/generics",
-        "BugReports": "https://github.com/r-lib/generics/issues",
-        "Depends": "R (>= 3.2)",
-        "Imports": "methods",
-        "Suggests": "covr, pkgload, testthat (>= 3.0.0), tibble, withr",
-        "Config/Needs/website": "tidyverse/tidytemplate",
-        "Config/testthat/edition": "3",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.0",
-        "NeedsCompilation": "no",
-        "Packaged": "2022-07-05 14:52:13 UTC; davis",
-        "Author": "Hadley Wickham [aut, cre],\n  Max Kuhn [aut],\n  Davis Vaughan [aut],\n  RStudio [cph]",
-        "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-07-05 19:40:02 UTC",
-        "Built": "R 4.2.1; ; 2022-09-25 00:41:41 UTC; windows"
       }
     },
     "glue": {
@@ -840,41 +728,6 @@
         "Built": "R 4.2.1; ; 2022-10-08 23:51:46 UTC; windows"
       }
     },
-    "lubridate": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Type": "Package",
-        "Package": "lubridate",
-        "Title": "Make Dealing with Dates a Little Easier",
-        "Version": "1.8.0",
-        "Authors@R": "\n    c(person(given = \"Vitalie\",\n             family = \"Spinu\",\n             role = c(\"aut\", \"cre\"),\n             email = \"spinuvit@gmail.com\"),\n      person(given = \"Garrett\",\n             family = \"Grolemund\",\n             role = \"aut\"),\n      person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = \"aut\"),\n      person(given = \"Davis\",\n             family = \"Vaughan\",\n             role = \"ctb\"),\n      person(given = \"Ian\",\n             family = \"Lyttle\",\n             role = \"ctb\"),\n      person(given = \"Imanuel\",\n             family = \"Costigan\",\n             role = \"ctb\"),\n      person(given = \"Jason\",\n             family = \"Law\",\n             role = \"ctb\"),\n      person(given = \"Doug\",\n             family = \"Mitarotonda\",\n             role = \"ctb\"),\n      person(given = \"Joseph\",\n             family = \"Larmarange\",\n             role = \"ctb\"),\n      person(given = \"Jonathan\",\n             family = \"Boiser\",\n             role = \"ctb\"),\n      person(given = \"Chel Hee\",\n             family = \"Lee\",\n             role = \"ctb\"),\n      person(\"Google Inc.\", role = c(\"ctb\", \"cph\")))",
-        "Maintainer": "Vitalie Spinu <spinuvit@gmail.com>",
-        "Description": "Functions to work with date-times and time-spans:\n    fast and user friendly parsing of date-time data, extraction and\n    updating of components of a date-time (years, months, days, hours,\n    minutes, and seconds), algebraic manipulation on date-time and\n    time-span objects. The 'lubridate' package has a consistent and\n    memorable syntax that makes working with dates easy and fun.  Parts of\n    the 'CCTZ' source code, released under the Apache 2.0 License, are\n    included in this package. See <https://github.com/google/cctz> for\n    more details.",
-        "License": "GPL (>= 2)",
-        "URL": "https://lubridate.tidyverse.org,\nhttps://github.com/tidyverse/lubridate",
-        "BugReports": "https://github.com/tidyverse/lubridate/issues",
-        "Depends": "methods, R (>= 3.2)",
-        "Imports": "generics",
-        "Suggests": "covr, knitr, testthat (>= 2.1.0), vctrs (>= 0.3.0), rmarkdown",
-        "Enhances": "chron, timeDate, tis, zoo",
-        "LinkingTo": "cpp11 (>= 0.2.7)",
-        "VignetteBuilder": "knitr",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "7.1.1",
-        "SystemRequirements": "C++11, A system with zoneinfo data (e.g.\n/usr/share/zoneinfo). On Windows the zoneinfo included with R\nis used.",
-        "Collate": "'Dates.r' 'POSIXt.r' 'util.r' 'parse.r' 'timespans.r'\n'intervals.r' 'difftimes.r' 'durations.r' 'periods.r'\n'accessors-date.R' 'accessors-day.r' 'accessors-dst.r'\n'accessors-hour.r' 'accessors-minute.r' 'accessors-month.r'\n'accessors-quarter.r' 'accessors-second.r' 'accessors-tz.r'\n'accessors-week.r' 'accessors-year.r' 'am-pm.r' 'time-zones.r'\n'numeric.r' 'coercion.r' 'constants.r' 'cpp11-wrappers.R'\n'cpp11.R' 'cyclic_encoding.r' 'data.r' 'decimal-dates.r'\n'deprecated.r' 'format_ISO8601.r' 'guess.r' 'hidden.r'\n'instants.r' 'leap-years.r' 'ops-addition.r' 'ops-compare.r'\n'ops-division.r' 'ops-integer-division.r' 'ops-m+.r'\n'ops-modulo.r' 'ops-multiplication.r' 'ops-subtraction.r'\n'package.r' 'pretty.r' 'round.r' 'stamp.r' 'tzdir.R' 'update.r'\n'vctrs.R' 'zzz.R'",
-        "NeedsCompilation": "yes",
-        "Packaged": "2021-10-03 10:14:57 UTC; vspinu",
-        "Author": "Vitalie Spinu [aut, cre],\n  Garrett Grolemund [aut],\n  Hadley Wickham [aut],\n  Davis Vaughan [ctb],\n  Ian Lyttle [ctb],\n  Imanuel Costigan [ctb],\n  Jason Law [ctb],\n  Doug Mitarotonda [ctb],\n  Joseph Larmarange [ctb],\n  Jonathan Boiser [ctb],\n  Chel Hee Lee [ctb],\n  Google Inc. [ctb, cph]",
-        "Repository": "CRAN",
-        "Date/Publication": "2021-10-07 15:20:02 UTC",
-        "Built": "R 4.2.1; x86_64-w64-mingw32; 2022-10-02 01:49:37 UTC; windows",
-        "ExperimentalWindowsRuntime": "ucrt",
-        "Archs": "x64"
-      }
-    },
     "magrittr": {
       "Source": "CRAN",
       "Repository": "https://cran.uni-muenster.de",
@@ -1014,32 +867,6 @@
         "Built": "R 4.2.1; ; 2022-09-25 00:40:59 UTC; windows"
       }
     },
-    "plogr": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "plogr",
-        "Title": "The 'plog' C++ Logging Library",
-        "Version": "0.2.0",
-        "Date": "2018-03-24",
-        "Authors@R": "c(\n  person(\"Kirill\", \"Müller\", role = c(\"aut\", \"cre\"), email = \"krlmlr+r@mailbox.org\"),\n  person(\"Sergey\", \"Podobry\", role = \"cph\", comment = \"Author of the bundled plog library\"))",
-        "Description": "\n  A simple header-only logging library for C++.\n  Add 'LinkingTo: plogr' to 'DESCRIPTION', and '#include <plogr.h>' in your C++ modules to use it.",
-        "Suggests": "Rcpp",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "URL": "https://github.com/krlmlr/plogr#readme",
-        "BugReports": "https://github.com/krlmlr/plogr/issues",
-        "RoxygenNote": "6.0.1.9000",
-        "NeedsCompilation": "no",
-        "Packaged": "2018-03-24 11:02:06 UTC; muelleki",
-        "Author": "Kirill Müller [aut, cre],\n  Sergey Podobry [cph] (Author of the bundled plog library)",
-        "Maintainer": "Kirill Müller <krlmlr+r@mailbox.org>",
-        "Repository": "CRAN",
-        "Date/Publication": "2018-03-25 15:25:27 UTC",
-        "Built": "R 4.2.1; ; 2022-10-02 01:04:08 UTC; windows"
-      }
-    },
     "promises": {
       "Source": "CRAN",
       "Repository": "https://cran.uni-muenster.de",
@@ -1068,30 +895,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2021-02-11 19:00:02 UTC",
         "Built": "R 4.2.1; x86_64-w64-mingw32; 2022-09-15 02:36:02 UTC; windows",
-        "ExperimentalWindowsRuntime": "ucrt",
-        "Archs": "x64"
-      }
-    },
-    "rJava": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "rJava",
-        "Version": "1.0-6",
-        "Title": "Low-Level R to Java Interface",
-        "Author": "Simon Urbanek <simon.urbanek@r-project.org>",
-        "Maintainer": "Simon Urbanek <simon.urbanek@r-project.org>",
-        "Depends": "R (>= 3.6.0), methods",
-        "Description": "Low-level interface to Java VM very much like .C/.Call and friends. Allows creation of objects, calling methods and accessing fields.",
-        "License": "LGPL-2.1",
-        "URL": "http://www.rforge.net/rJava/",
-        "SystemRequirements": "Java JDK 1.2 or higher (for JRI/REngine JDK 1.4 or\nhigher), GNU make",
-        "BugReports": "https://github.com/s-u/rJava/issues",
-        "NeedsCompilation": "yes",
-        "Packaged": "2021-12-09 22:56:54 UTC; rforge",
-        "Repository": "CRAN",
-        "Date/Publication": "2021-12-10 09:26:31 UTC",
-        "Built": "R 4.2.0; x86_64-w64-mingw32; 2022-04-24 01:20:43 UTC; windows",
         "ExperimentalWindowsRuntime": "ucrt",
         "Archs": "x64"
       }
@@ -1220,34 +1023,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2022-07-19 03:30:02 UTC",
         "Built": "R 4.2.1; ; 2022-09-15 03:46:51 UTC; windows"
-      }
-    },
-    "shinyAce": {
-      "Source": "CRAN",
-      "Repository": "https://cran.uni-muenster.de",
-      "description": {
-        "Package": "shinyAce",
-        "Type": "Package",
-        "Title": "Ace Editor Bindings for Shiny",
-        "Version": "0.4.2",
-        "Date": "2022-5-5",
-        "Authors@R": "c(\n  person(\"Vincent\", \"Nijs\", role = c(\"aut\", \"cre\"), email = \"radiant@rady.ucsd.edu\"),\n  person(\"Forest\", \"Fang\", role = \"aut\", email = \"forest.fang@outlook.com\"),\n  person(family = \"Trestle Technology, LLC\", role = \"aut\", email = \"cran@trestletechnology.net\"),\n  person(\"Jeff\", \"Allen\", role = \"aut\", email = \"cran@trestletechnology.net\"),\n  person(family = \"Institut de Radioprotection et de Surete Nucleaire\", role = c(\"cph\"), email = \"yann.richet@irsn.fr\"),\n  person(family = \"Ajax.org B.V.\", role = c(\"ctb\", \"cph\"), comment = \"Ace\"))",
-        "Description": "Ace editor bindings to enable a rich text editing environment\n    within Shiny.",
-        "License": "MIT + file LICENSE",
-        "Depends": "R (>= 3.3.0)",
-        "Imports": "shiny (>= 1.0.5), jsonlite, utils, tools",
-        "Suggests": "testthat (>= 2.0.0), dplyr (>= 0.8.3)",
-        "BugReports": "https://github.com/trestletech/shinyAce/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.1.2",
-        "Language": "en-US",
-        "NeedsCompilation": "no",
-        "Packaged": "2022-05-06 04:47:18 UTC; vnijs",
-        "Author": "Vincent Nijs [aut, cre],\n  Forest Fang [aut],\n  Trestle Technology, LLC [aut],\n  Jeff Allen [aut],\n  Institut de Radioprotection et de Surete Nucleaire [cph],\n  Ajax.org B.V. [ctb, cph] (Ace)",
-        "Maintainer": "Vincent Nijs <radiant@rady.ucsd.edu>",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-05-06 06:50:08 UTC",
-        "Built": "R 4.2.1; ; 2022-10-09 03:50:14 UTC; windows"
       }
     },
     "sourcetools": {
@@ -1395,16 +1170,16 @@
   },
   "files": {
     ".Rprofile": {
-      "checksum": "66aeedd7082ad94b9eda493ec8ecf94b"
+      "checksum": "7dac77f02f8290ad889dab1a832dbb85"
     },
     "app.R": {
-      "checksum": "84fdbbb6e42311b561bd9a1081c52a4f"
+      "checksum": "a08db5244851996f5a5ffcee0e8954e1"
     },
     "aws-advanced-jdbc-wrapper-1.0.0.jar": {
       "checksum": "144d777e403103b3b06f90583dc2b101"
     },
     "global.R": {
-      "checksum": "9e947c51069b41730dfddda1977652ee"
+      "checksum": "50a33dd9a8568b8a833a2551eea84e1a"
     },
     "init": {
       "checksum": "7d7c50110f7116bcf172698a61471870"

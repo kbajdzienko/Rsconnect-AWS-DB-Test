@@ -1,7 +1,7 @@
 aws_guide_aurora <- shiny::tags$span(
   "Endpoint (",
   shiny::tags$a(
-    "How to find Endpoint Address", 
+    "How to find Endpoint Address - Example", 
     href = 'https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Connecting.html#Aurora.Connecting.AuroraPostgreSQL',
     target = '_blank'),
   ")"
@@ -33,9 +33,9 @@ showError <- function(msg){
 #' @return data frame
 #' @export
 #'
-dbQuery <- function(sql, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
+dbQuery <- function(sql, DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
   
-  con <- make_con(ENDPOINT, PORT, DBNAME, USER, PASSWORD)
+  con <- make_con(DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD)
   
   df <- DBI::dbGetQuery(con, sql)
   
@@ -45,15 +45,16 @@ dbQuery <- function(sql, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
   
 }
 
-#' Connect to AWS Aurora
+#' Connect 
 #'
 #' @return connection object
 #' @export
 #'
-make_con <- function(ENDPOINT, PORT, DBNAME, USER, PASSWORD){
+make_con <- function(DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
   
   con <- DBI::dbConnect(
-    RPostgres::Postgres(),
+    odbc::odbc(),
+    driver = DRIVER,
     host = ENDPOINT,
     port = PORT,
     dbname = DBNAME,
