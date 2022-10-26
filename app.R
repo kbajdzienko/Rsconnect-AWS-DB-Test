@@ -71,7 +71,8 @@ ui <- fluidPage(
         column(
             6,
             h2("Output"),
-            verbatimTextOutput("output")
+            verbatimTextOutput("output"),
+            verbatimTextOutput('errors')
         )
     )
 )
@@ -135,6 +136,12 @@ server <- function(input, output, session) {
     output$output <- renderPrint({
         input$eval
         eval(parse(text = isolate(input$code)))
+    })
+    
+    output$errors <- renderPrint({
+        input$eval
+        tryCatch(expr = eval(parse(text = isolate(input$code))),
+                 error = function(e) paste(e, collapse = '\n'))
     })
     
 }
