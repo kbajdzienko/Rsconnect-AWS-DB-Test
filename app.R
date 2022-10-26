@@ -1,80 +1,83 @@
 library(shiny)
+library(waiter)
+
 library(DBI)
 library(RPostgres)
-library(waiter)
+library(odbc)
+library(RJDBC)
+
 library(shinyAce)
 
 source("global.R")
 
 
-ui <- fluidPage(
+ui <- navbarPage(
     
     waiter::useWaiter(),
     waiter::waiterShowOnLoad(spin_fading_circles()),
     
     titlePanel('AWS Aurora Connection Test'),
-    sidebarLayout(
-        sidebarPanel(
-            h3("Help"),
-            p(
-                "This is a POC shiny app to test connection to AWS Aurora, PostgreSQL."
-            ),
-            p(
-                "Fill the connection arguments and click Connect DB to test the connection.
+    tabPanel(
+        "Simple",
+        sidebarLayout(
+            sidebarPanel(
+                h3("Help"),
+                p(
+                    "This is a POC shiny app to test connection to AWS Aurora, PostgreSQL."
+                ),
+                p(
+                    "Fill the connection arguments and click Connect DB to test the connection.
                 On successfull connection, the app will return a table with current connection information on the right panel."
+                ),
+                h3("Connection Arguments"),
+                textInput(
+                    inputId = 'endpoint',
+                    label = aws_guide_aurora
+                ),
+                textInput(
+                    inputId = 'port',
+                    label = 'Port',
+                    value = 5432
+                ),
+                textInput(
+                    inputId = 'dbname',
+                    label = 'Database Name',
+                    value = 'postgres'
+                ),
+                textInput(
+                    inputId = 'schema',
+                    label = 'Schema Name',
+                    value = 'public'
+                ),
+                textInput(
+                    inputId = 'user', 
+                    label = "User"
+                ),
+                passwordInput(
+                    inputId = 'password', 
+                    label = "Password or Token"
+                ),
+                actionButton(
+                    inputId = 'db.connect',
+                    label = "Connect",
+                    icon = icon('database'),
+                    class = 'btn-success btn-block'
+                )
             ),
-            h3("Connection Arguments"),
-            textInput(
-                inputId = 'endpoint',
-                label = aws_guide_aurora
-            ),
-            textInput(
-                inputId = 'port',
-                label = 'Port',
-                value = 5432
-            ),
-            textInput(
-                inputId = 'dbname',
-                label = 'Database Name',
-                value = 'postgres'
-            ),
-            textInput(
-                inputId = 'schema',
-                label = 'Schema Name',
-                value = 'public'
-            ),
-            textInput(
-                inputId = 'user', 
-                label = "User"
-            ),
-            passwordInput(
-                inputId = 'password', 
-                label = "Password or Token"
-            ),
-            actionButton(
-                inputId = 'db.connect',
-                label = "Connect",
-                icon = icon('database'),
-                class = 'btn-success btn-block'
-            )
-        ),
-        mainPanel(dataTableOutput('table'))
-    ), #end sidebarLayout
-
-    fluidRow(
-        column(
-            6,
+            mainPanel(dataTableOutput('table'))
+        ), #end sidebarLayout
+    ),
+    tabPanel(
+        'Advanced',
+        fluidRow(
             h2("Source Code"),
             aceEditor("code", mode = "r", height = "200px", value = ""),
-            actionButton("eval", "Evaluate")
-        ),
-        column(
-            6,
-            h2("Output"),
+            actionButton("eval", "Evaluate"),
             verbatimTextOutput("output"),
             verbatimTextOutput('errors')
         )
     )
+    
 )
 
 server <- function(input, output, session) {
