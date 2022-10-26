@@ -65,6 +65,11 @@ ui <- navbarPage(
                     inputId = 'password', 
                     label = "Password or Token"
                 ),
+                textInput(
+                    inputId = 'query',
+                    label = "Query",
+                    value = "select current_catalog, current_schema, current_role, current_timestamp"
+                ),
                 actionButton(
                     inputId = 'db.connect',
                     label = "Connect",
@@ -92,9 +97,7 @@ server <- function(input, output, session) {
         USER <- req(input$user)
         PASSWORD <- req(input$password)
         
-        query <- paste0(
-            "select current_catalog, current_schema, current_role, current_timestamp"
-        )
+        query <- req(input$query)
         
         waiter_show(
             html = tagList(
@@ -104,7 +107,7 @@ server <- function(input, output, session) {
         )
         
         df <- tryCatch(
-            dbQuery(query, ENDPOINT, PORT, DBNAME, USER, PASSWORD),
+            dbQuery(query, DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD),
             error = function(e) {
                 paste(e, collapse = '\n')
             }
