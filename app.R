@@ -40,7 +40,7 @@ ui <- navbarPage(
                 p(
                     tags$b("Important Note:"),
                     "If the connection takes too long to establish it would indicate that the database port is blocked between Posit Connect account and your AWS account. That requries FireWall change IT ticket.",
-                    "Alternatively check the VPC security group Inbound rules inside your account".
+                    "Alternatively check the VPC security group Inbound rules inside your account"
                 ),
                 h3("Connection Arguments"),
                 selectInput(
