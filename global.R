@@ -37,9 +37,9 @@ dbQuery <- function(sql, DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
   
   con <- make_con(DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD)
   
-  df <- DBI::dbGetQuery(con, sql)
+  df <- odbc::dbGetQuery(con, sql)
   
-  DBI::dbDisconnect(con)
+  odbc::dbDisconnect(con)
   
   return(df)
   
@@ -52,14 +52,15 @@ dbQuery <- function(sql, DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
 #'
 make_con <- function(DRIVER, ENDPOINT, PORT, DBNAME, USER, PASSWORD){
   
-  con <- DBI::dbConnect(
+  con <- odbc::dbConnect(
     odbc::odbc(),
     driver = DRIVER,
     host = ENDPOINT,
     port = PORT,
     database = DBNAME,
     user = USER,
-    password = PASSWORD
+    password = PASSWORD,
+    timeout = 5
   )
   
   return(con)
