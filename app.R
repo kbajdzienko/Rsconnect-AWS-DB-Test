@@ -28,11 +28,19 @@ ui <- navbarPage(
                     "It should help you validate if the RSCONNECT server is able to connect with data provider in your AWS account."
                 ),
                 p(
+                    "Source code is available at:",a(href = "https://github.com/kbajdzienko/Rsconnect-AWS-DB-Test/")
+                ),
+                p(
                     "Note that DEV accounts cannot connect to PROD accounts."
                 ),
                 p(
                     "Fill the connection arguments and click Connect DB to test the connection.
-                On successfull connection, the app will return a table with current connection information on the right panel."
+                On successfull connection, the app will return query result on the right panel."
+                ),
+                p(
+                    tags$b("Important Note:"),
+                    "If the connection takes too long to establish it would indicate that the database port is blocked between Posit Connect account and your AWS account. That requries FireWall change IT ticket.",
+                    "Alternatively check the VPC security group Inbound rules inside your account".
                 ),
                 h3("Connection Arguments"),
                 selectInput(
@@ -43,17 +51,17 @@ ui <- navbarPage(
                 textInput(
                     inputId = 'endpoint',
                     label = aws_guide_aurora,
-                    value = 'mutation-centric-db-postgresqlv2-two.ciaihwn16xxi.eu-central-1.rds.amazonaws.com'
+                    value = ""
                 ),
                 textInput(
                     inputId = 'port',
                     label = 'Port',
-                    value = 5432
+                    value = ''
                 ),
                 textInput(
                     inputId = 'dbname',
                     label = 'Database Name',
-                    value = 'postgres'
+                    value = 'dev'
                 ),
                 textInput(
                     inputId = 'schema',
@@ -71,7 +79,7 @@ ui <- navbarPage(
                 textInput(
                     inputId = 'query',
                     label = "Query",
-                    value = "select current_catalog, current_schema, current_role, current_timestamp"
+                    value = "select 1"
                 ),
                 actionButton(
                     inputId = 'db.connect',
